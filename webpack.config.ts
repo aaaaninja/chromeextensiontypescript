@@ -1,5 +1,6 @@
 import { ConfigurationFactory } from 'webpack'
 import path from 'path'
+import nodeExternals from 'webpack-node-externals'
 
 const config: ConfigurationFactory = () => {
   return {
@@ -20,9 +21,7 @@ const config: ConfigurationFactory = () => {
     resolve: {
       extensions: ['ts', 'js']
     },
-    externals: {
-      puppeteer: 'require("puppeteer")'
-    }
+    externals: [nodeExternals()]
   }
 }
 
