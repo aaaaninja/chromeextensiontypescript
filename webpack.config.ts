@@ -3,9 +3,7 @@ import path from 'path'
 
 const config: ConfigurationFactory = () => {
   return {
-    entry: {
-      content_scripts: path.join(__dirname, 'src', 'content_scripts.ts')
-    },
+    entry: `${__dirname}/src/app.ts`,
     output: {
       path: path.join(__dirname, 'dist'),
       filename: '[name].js'
@@ -21,6 +19,9 @@ const config: ConfigurationFactory = () => {
     },
     resolve: {
       extensions: ['ts', 'js']
+    },
+    externals: {
+      puppeteer: 'require("puppeteer")'
     }
   }
 }
